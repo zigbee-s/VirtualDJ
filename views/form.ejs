@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song player</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <div class="box" id = "input-form">
+        <label for="username-input">Username</label>
+        <input type="text" id="username-input">
+        <br><br>
+        <label for="join-room-input">Join Room</label>
+        <input type="text" id = "join-room-input"  placeholder="Enter room code">
+        <br><br>
+        <button id = "join-btn">Join</button>
+        <br><br> 
+        <label for="create-room-input">Room Code</label>
+        <input type="text" id = "new-roomCode"  placeholder=" Code" disabled>
+        <br><br>
+        <button id = "create-btn">Create And Join</button>
+    </div>
+</body>
+<script src="/form.js"></script>
+</html>
