@@ -7,7 +7,7 @@ const roomCode = roomCodeInp.value;
 const audio_player = document.getElementById('audio_player')
 socket.emit('connected',roomCode);
 socket.on('connected',()=>{
-    location.replace('http://localhost:3000/index/' + roomCode);
+    location.replace('/index/' + roomCode);
 })
 
 const uploadFileInp = document.getElementById('uploadFileInp');

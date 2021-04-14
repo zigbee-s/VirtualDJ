@@ -28,7 +28,7 @@ socket.on('message',message => {
 });
 
 socket.on('joined', roomCode => {
-    location.replace('http://localhost:3000/index/' + roomCode);
+    location.replace('/index/' + roomCode);
 })
 
 
