@@ -92,10 +92,7 @@ app.use(express.static('./public'));
 var userSession = [];
 
 var songs_data =[];
-songs_data.push({
-    hash_code: "hash_code",
-    songs_name: "sadada"
-});
+
 
 var hash_table = [];
 
