@@ -42,8 +42,11 @@ createBtn.addEventListener('click',createButtonHandler);
 
 // Functions
 function createButtonHandler(){
-    socket.emit("create-room");
+    socketData.userName = usernameInput.value;
+    const userName = socketData.userName
+    socket.emit("create-room", userName);
 }
+
 
 function joinButtonHandler(){
     socketData.userName = usernameInput.value;
@@ -54,15 +57,6 @@ function joinButtonHandler(){
     socket.emit("join-room",data);
 };
 
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
-}
+
 
 

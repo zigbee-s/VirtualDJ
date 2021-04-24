@@ -3,11 +3,23 @@ const socket = io();
 //input fields
 const roomCodeInp = document.getElementById('roomCodeInp');
 const roomCode = roomCodeInp.value;
-
+const usersInput = document.getElementById('users');
 const audio_player = document.getElementById('audio_player')
+
+const socketData = {
+    roomCode: "",
+    userName: "",
+    usersArray: []
+};
+
+
 socket.emit('connected',roomCode);
-socket.on('connected',()=>{
-    location.replace('/index/' + roomCode);
+socket.on('connected',(roomData)=>{
+    socketData.roomCode = roomData.roomCode;
+    socketData.usersArray = roomData.usersArray;
+    socketData.usersArray.forEach(userName => {
+    usersInput.innerHTML += `<li>${userName}</li>`; 
+    });
 })
 
 const uploadFileInp = document.getElementById('uploadFileInp');

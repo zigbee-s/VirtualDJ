@@ -34,8 +34,14 @@ io.on('connection',(socket)=>{
     socket.on('started-song', handlePlaySong);
 
     //Functions
-    function handleCreateRoom(){
+    function handleCreateRoom(userName){
         //Getting a random room number from makeid function
+        
+        if(userName == ""){
+            socket.emit('message','Please enter a valid username');
+            return;
+        }
+
         const roomCode = makeid(5);
 
         //Creating and adding room object to the rooms list
@@ -44,10 +50,13 @@ io.on('connection',(socket)=>{
             usersArray: [],
         }
 
+        // Adding user to user array
+        rooms[roomCode].usersArray.push(userName);
+        console.log(rooms[roomCode]);
+
         //Joining a room
         socket.join(roomCode);
-        socket.emit("joined",roomCode);
-        
+        socket.emit("joined",roomCode);    
     }
 
 
@@ -72,19 +81,16 @@ io.on('connection',(socket)=>{
 
 
     function handleConnect(roomCode){
-        console.log(roomCode);
         socket.join(roomCode);
-        socket.emit('message',`room joined ${roomCode}`);
+        io.to(roomCode).emit('connected',rooms[roomCode]);
 
     }
 
     function handlePlaySong(data){
-        console.log(data);
         io.to(data.roomCode).emit('started-song',data.hash_code);
     }
 
-
-    })
+})
 //set ejs framework
 app.set('view engine','ejs');
 app.use(express.static('./public'));

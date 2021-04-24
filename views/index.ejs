@@ -9,19 +9,30 @@
     <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
-    <div class="container" id = "song-list">
-        <input type="text" id ="roomCodeInp" value= "<%=data.roomCode %>">
-        <form action="/upload/<%=data.roomCode %>" method="post" enctype="multipart/form-data">
-            <input type="file" name="image" />
-            <input type="submit" id = "uploadFileInp" value="Upload a file"/ >
-        </form>
-        <ul>
-            <% data.songsData.forEach(song => { %>
-                <li onclick= "selected('<%=song.hash_code %>')"><%= song.songs_name %></li>
-            <% });%>
-        </ul>
-        <audio id="audio_player" controls autoplay muted ="muted" >
-        </audio>
+    <div class="section">
+        Users
+    <ol id ="users">
+    </ol>
+    </div>
+    <div>
+        <div class="box">
+        </div>
+        <div class="box1">	
+        </div>
+        <div class="box2">
+            <form action="/upload/<%=data.roomCode %>" method="post" enctype="multipart/form-data" clas="form" >
+                <input type="file" name="image" />
+                <input type="submit" id = "uploadFileInp" value="Upload a file"/ >
+            </form>
+            <ul>
+                <% data.songsData.forEach(song => { %>
+                    <li onclick= "selected('<%=song.hash_code %>')"><%= song.songs_name %></li>
+                <% });%>
+            </ul>
+            <audio id="audio_player" controls autoplay muted ="muted" >
+            </audio>
+        <input maxlength='10' id ="roomCodeInp" value= "<%=data.roomCode %>"/>	    
+        </div>
     </div>
 </body>
 <script src="/app.js"></script>
