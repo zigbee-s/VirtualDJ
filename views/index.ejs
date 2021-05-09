@@ -20,13 +20,13 @@
         <div class="box1">	
         </div>
         <div class="box2">
-            <form action="/upload/<%=data.roomCode %>" method="post" enctype="multipart/form-data" clas="form" >
-                <input type="file" name="image" />
-                <input type="submit" id = "uploadFileInp" value="Upload a file"/ >
+            <form action="/upload/<%=data.roomCode %>" method="post" enctype="multipart/form-data" class="choose-form" >
+                <input type="file" name="image" class ="input-button"/>
+                <input type ="submit" id = "uploadFileInp" value="Upload a file"/ class ="input-button">
             </form>
-            <ul>
+            <ul class = "songs-list">
                 <% data.songsData.forEach(song => { %>
-                    <li onclick= "selected('<%=song.hash_code %>')"><%= song.songs_name %></li>
+                    <li onclick= "selected('<%=song.hash_code %>')"><a href ="#" class = "btn btn--white btn--animated"><%= song.songs_name %></a></li>
                 <% });%>
             </ul>
             <audio id="audio_player" controls autoplay muted ="muted" >

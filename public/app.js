@@ -13,14 +13,18 @@ const socketData = {
 };
 
 
+
 socket.emit('connected',roomCode);
 socket.on('connected',(roomData)=>{
     socketData.roomCode = roomData.roomCode;
+    usersInput.innerHTML="";
     socketData.usersArray = roomData.usersArray;
     socketData.usersArray.forEach(userName => {
-    usersInput.innerHTML += `<li>${userName}</li>`; 
+        usersInput.innerHTML += `<li>${userName}</li>`; 
     });
 })
+
+
 
 const uploadFileInp = document.getElementById('uploadFileInp');
 uploadFileInp.addEventListener('click',uploadSongHandler);

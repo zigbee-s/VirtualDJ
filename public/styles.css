@@ -1,8 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   box-sizing: border-box;
   margin: 0;
-  background-color: #e8e8e8;
+  background-color: #414040;
 }
+
+#input-form {
+  color: #c3c4c6;
+  border: 2px solid white;
+  border-radius: 20px 10px 20px 10px;
+  font-size: 20px;
+  width: 40%;
+  padding: 20px;
+  position: relative;
+}
+#input-form label {
+  color: #c3c4c6;
+  margin-right: 50px;
+}
+
+#input-form input {
+  position: absolute;
+  right: 35%;
+  height: 20px;
+}
+
+#input-form a {
+  text-decoration: none;
+  display: inline-block;
+  color: #c3c4c6;
+  border: 2px solid #d91a60;
+  width: 30%;
+  border-radius: 100px;
+}
+
+#input-form a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+}
+
 .box {
   background-color: #c3c4c6;
   opacity: 0.5;
@@ -35,6 +75,43 @@ body {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.81), 0 6px 20px 0 rgba(0, 0, 0, 0.81);
 }
 
+.choose-form {
+  color: #c3c4c6;
+  margin-bottom: 20px;
+}
+
+.input-button {
+  border: none;
+  border: solid 1px #ccc;
+  border-radius: 15px 100px 100px 15px;
+  margin-right: 50px;
+}
+
+.songs-list {
+  width: 50%;
+  margin-top: 40px;
+}
+.songs-list li {
+  list-style: none;
+  border: 2px solid #d91a60;
+  border-radius: 100px;
+  margin: 0%;
+  margin-top: 10px;
+  position: relative;
+}
+
+.songs-list li a {
+  color: #c3c4c6;
+  text-decoration: none;
+  list-style: none;
+}
+
+.songs-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  border: 2px solid white;
+}
+
 #roomCodeInp {
   width: 15%;
   position: absolute;
@@ -48,4 +125,14 @@ body {
 #audio_player {
   width: 40%;
   color: #d91a60;
+  margin-top: 30px;
+}
+
+#users {
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+#users li {
+  margin-top: 5px;
 }
